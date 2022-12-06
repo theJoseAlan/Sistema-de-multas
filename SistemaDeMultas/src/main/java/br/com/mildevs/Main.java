@@ -22,31 +22,35 @@ public class Main {
         condutor.setNumCnh(12345);
         condutor.setDataEmissao("04/12/09");
         condutor.setOrgaoEmissor("SSPX");
-        condutor.setPontuacao(30);
-        // condutor.setVeiculo(veiculo);
         condutorDao.criaCondutor(condutor);
 
-
-        Condutor condutor2 = new Condutor();
-        condutor2.setDataEmissao("12/12/2021");
-        condutor2.setNumCnh(54321);
-        condutor2.setOrgaoEmissor("SIME");
-        condutor2.setPontuacao(90);
-        // condutor.setVeiculo(veiculo);
-        condutorDao.criaCondutor(condutor2);
 
         Veiculo veiculo = new Veiculo();
         veiculo.setMarca("BMW");
         veiculo.setModelo("Bem grande");
         veiculo.setPlaca("OCK6635");
-        //veiculo.setCondutor(condutor);
+        veiculo.setCondutor(condutor);
         veiculoDao.criaVeiculo(veiculo);
 
         Multa multa = new Multa();
-        multa.setCdMulta(12);
-        multa.setPontuacao(30);
+        multa.setCodMulta(12);
+        multa.setPontuacao(3);
         multa.setValor(300.45);
+        multa.setVeiculo(veiculo);
+        multa.setCondutor(condutor);
+        condutor.setPontuacao(3); //E essa pitanga aqui?????
         multaDao.criaMulta(multa);
+
+
+        Multa multa2 = new Multa();
+        multa2.setCodMulta(11);
+        multa2.setPontuacao(5);
+        multa2.setValor(543);
+        multa2.setVeiculo(veiculo);
+        multa2.setCondutor(condutor);
+        multaDao.criaMulta(multa2);
+
+
 
         /*
         //Consulta

@@ -18,12 +18,14 @@ public class Condutor{
     @Column(nullable = false)
     private String orgaoEmissor;
 
-    @Column(nullable = false)
+    @OneToMany(mappedBy = "condutor", cascade = CascadeType.ALL)
+    private List<Veiculo> veiculo;
+
+    @OneToMany(mappedBy = "codMulta", cascade = CascadeType.ALL)
+    private List<Multa> multas;
+
+    @JoinColumn(name = "pontuacao", referencedColumnName = "cod_Multa")
     private int pontuacao;
-
-
-
-    //private Veiculo veiculo;
 
     public int getNumCnh() {
         return numCnh;
@@ -49,30 +51,28 @@ public class Condutor{
         this.orgaoEmissor = orgaoEmissor;
     }
 
+
+    public List<Veiculo> getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(List<Veiculo> veiculo) {
+        this.veiculo = veiculo;
+    }
+
+    public List<Multa> getMultas() {
+        return multas;
+    }
+
+    public void setMultas(List<Multa> multas) {
+        this.multas = multas;
+    }
+
     public int getPontuacao() {
         return pontuacao;
     }
 
     public void setPontuacao(int pontuacao) {
         this.pontuacao = pontuacao;
-    }
-
-
-    /*public Veiculo getVeiculo() {
-        return veiculo;
-    }
-
-    public void setVeiculo(Veiculo veiculo) {
-        this.veiculo = veiculo;
-    }*/
-
-    @Override
-    public String toString() {
-        return "Condutor{" +
-                "numCnh=" + numCnh +
-                ", dataEmissao='" + dataEmissao + '\'' +
-                ", orgaoEmissor='" + orgaoEmissor + '\'' +
-                ", pontuacao=" + pontuacao +
-                '}';
     }
 }

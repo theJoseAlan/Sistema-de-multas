@@ -32,4 +32,9 @@ public class VeiculoDao {
         return query.getResultList();
     }
 
+
+    //Venda Veiculo
+    public boolean vendaVeiculo(){
+        return true;
+    }
 }

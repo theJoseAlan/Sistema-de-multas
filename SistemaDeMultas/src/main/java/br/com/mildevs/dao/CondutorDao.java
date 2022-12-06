@@ -1,6 +1,5 @@
 package br.com.mildevs.dao;
 
-
 import br.com.mildevs.entity.Condutor;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;

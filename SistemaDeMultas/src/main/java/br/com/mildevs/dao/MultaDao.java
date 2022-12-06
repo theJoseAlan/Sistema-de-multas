@@ -1,6 +1,8 @@
 package br.com.mildevs.dao;
 
+import br.com.mildevs.entity.Condutor;
 import br.com.mildevs.entity.Multa;
+import br.com.mildevs.entity.Veiculo;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
@@ -17,6 +19,7 @@ public class MultaDao {
 
     //Criação
     public boolean criaMulta(Multa multa){
+
         this.manager.getTransaction().begin();
         this.manager.persist(multa);
         this.manager.getTransaction().commit();
@@ -30,5 +33,10 @@ public class MultaDao {
         return query.getResultList();
     }
 
+    //Adciona os pontos da multa no condutor
+    public boolean adcionaPontos(Condutor condutor, int pontos){
+
+        return true;
+    }
 
 }
