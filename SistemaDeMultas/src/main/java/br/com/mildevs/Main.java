@@ -17,66 +17,14 @@ public class Main {
         VeiculoDao veiculoDao = new VeiculoDao();
         MultaDao multaDao = new MultaDao();
 
-        int op=0, op2=0;
 
-        do{
-            System.out.println("====== SISTEMA DE MULTAS =====");
-            System.out.println("Qual das opções abaixo você deseja administrar? ");
-            System.out.print("[1] Condutor\n[2] Veículo\n[3] Multa\n[4] Sair\nR: ");
-
-                op = input.nextInt();
-                if(op==1){
-                    System.out.println("=-=-=- CONDUTORES -=-=-=");
-
-                    exibeSubmenu();
-
-                    op2 = input.nextInt();
-
-                    if(op2==1){
-
-                        System.out.print("CNH: ");
-                        int cnh = input.nextInt();
-                        input.nextLine();
-                        System.out.print("Data de emissão: ");
-                        String dataDeEmissao = input.nextLine();
-                        System.out.print("Orgão emissor: ");
-                        String orgaoEmissor = input.nextLine();
-                        System.out.print("Pontuação: ");
-                        int pontuacao = input.nextInt();
-
-
-                        Condutor condutor = new Condutor();
-                        condutor.setNumCnh(cnh);
-                        condutor.setDataEmissao(dataDeEmissao);
-                        condutor.setOrgaoEmissor(orgaoEmissor);
-                        condutor.setPontuacao(pontuacao);
-                        // condutor.setVeiculo(veiculo);
-                        condutorDao.criaCondutor(condutor);
-                        System.out.println("Condutor inserido");
-
-                    } else if (op2==2) {
-
-                    }else if (op2==3) {
-
-                    }else if (op2==4) {
-
-                    }
-
-                } else if (op==2) {
-                    System.out.println("=-=-=- VEÍCULOS -=-=-=");
-                }else if(op==3){
-                    System.out.println("=-=-=- MULTAS -=-=-=");
-                } else if (op==4) {
-                    System.out.println("Até mais!");
-                    break;
-                }else{
-                    System.out.println("Inválido, tente novamente");
-                }
-
-
-
-        }while (op!=1 || op!=2 || op!=3 || op!=4);
-
+        Condutor condutor = new Condutor();
+        condutor.setNumCnh(12345);
+        condutor.setDataEmissao("04/12/09");
+        condutor.setOrgaoEmissor("SSPX");
+        condutor.setPontuacao(30);
+        // condutor.setVeiculo(veiculo);
+        condutorDao.criaCondutor(condutor);
 
 
         Condutor condutor2 = new Condutor();
