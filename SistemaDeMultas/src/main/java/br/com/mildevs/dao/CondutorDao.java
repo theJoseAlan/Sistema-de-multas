@@ -1,6 +1,7 @@
 package br.com.mildevs.dao;
 
 import br.com.mildevs.entity.Condutor;
+import br.com.mildevs.entity.Multa;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
@@ -50,4 +51,16 @@ public class CondutorDao {
 
         return true;
     }
+
+    //Adciona pontos
+    /*
+    public boolean adcionaPontos(Multa multa, int pontos){
+        Condutor condutor = this.manager.find(Condutor.class, pontos);
+
+        List<Multa> pontosCondutor = condutor.getMultas();
+
+
+
+        return true;
+    }*/
 }

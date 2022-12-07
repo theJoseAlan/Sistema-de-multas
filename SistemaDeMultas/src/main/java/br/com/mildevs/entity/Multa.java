@@ -12,7 +12,7 @@ public class Multa {
     @Column(nullable = false)
     private double valor;
 
-    @Column(nullable = false)
+    @Column(name = "pontuacao",nullable = false)
     private int pontuacao;
 
     @ManyToOne

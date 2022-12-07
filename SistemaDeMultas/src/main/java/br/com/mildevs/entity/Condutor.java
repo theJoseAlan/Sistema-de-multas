@@ -24,7 +24,7 @@ public class Condutor{
     @OneToMany(mappedBy = "codMulta", cascade = CascadeType.ALL)
     private List<Multa> multas;
 
-    @JoinColumn(name = "pontuacao", referencedColumnName = "cod_Multa")
+    @JoinColumn(name = "pontuacao", referencedColumnName = "pontuacao")
     private int pontuacao;
 
     public int getNumCnh() {

@@ -38,10 +38,10 @@ public class Main {
         multa.setValor(300.45);
         multa.setVeiculo(veiculo);
         multa.setCondutor(condutor);
-        condutor.setPontuacao(3); //E essa pitanga aqui?????
+        //condutorDao.adcionaPontos(multa, multa.getPontuacao());
         multaDao.criaMulta(multa);
 
-
+        /*
         Multa multa2 = new Multa();
         multa2.setCodMulta(11);
         multa2.setPontuacao(5);
@@ -49,7 +49,7 @@ public class Main {
         multa2.setVeiculo(veiculo);
         multa2.setCondutor(condutor);
         multaDao.criaMulta(multa2);
-
+        */
 
 
         /*
