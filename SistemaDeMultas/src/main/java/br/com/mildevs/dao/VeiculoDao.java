@@ -37,4 +37,16 @@ public class VeiculoDao {
     public boolean vendaVeiculo(){
         return true;
     }
+
+   /* public int retornaCnh(Veiculo veiculo){
+
+        Condutor condutor;
+
+        condutor = manager.find(Condutor.class, veiculo.getCondutor());
+
+        return condutor.getNumCnh();
+
+    }*/
+
+
 }

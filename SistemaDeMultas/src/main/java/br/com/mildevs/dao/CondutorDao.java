@@ -53,14 +53,17 @@ public class CondutorDao {
     }
 
     //Adciona pontos
-    /*
-    public boolean adcionaPontos(Multa multa, int pontos){
-        Condutor condutor = this.manager.find(Condutor.class, pontos);
 
-        List<Multa> pontosCondutor = condutor.getMultas();
+    public boolean adcionaPontos(int cnh, int pontos){
+        Condutor condutor = this.manager.find(Condutor.class, cnh);
 
 
+        condutor.setPontuacao(condutor.getPontuacao()+pontos);
+
+        this.manager.getTransaction().begin();
+        this.manager.persist(condutor);
+        this.manager.getTransaction().commit();
 
         return true;
-    }*/
+    }
 }

@@ -22,6 +22,7 @@ public class Main {
         condutor.setNumCnh(12345);
         condutor.setDataEmissao("04/12/09");
         condutor.setOrgaoEmissor("SSPX");
+        //condutor.setPontuacao(4);
         condutorDao.criaCondutor(condutor);
 
 
@@ -38,10 +39,10 @@ public class Main {
         multa.setValor(300.45);
         multa.setVeiculo(veiculo);
         multa.setCondutor(condutor);
-        //condutorDao.adcionaPontos(multa, multa.getPontuacao());
         multaDao.criaMulta(multa);
 
-        /*
+        condutorDao.adcionaPontos(condutor.getNumCnh(), multa.getPontuacao());
+
         Multa multa2 = new Multa();
         multa2.setCodMulta(11);
         multa2.setPontuacao(5);
@@ -49,8 +50,8 @@ public class Main {
         multa2.setVeiculo(veiculo);
         multa2.setCondutor(condutor);
         multaDao.criaMulta(multa2);
-        */
 
+        condutorDao.adcionaPontos(condutor.getNumCnh(), multa2.getPontuacao());
 
         /*
         //Consulta
