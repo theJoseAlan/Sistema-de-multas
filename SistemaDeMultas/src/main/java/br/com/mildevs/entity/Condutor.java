@@ -18,8 +18,8 @@ public class Condutor{
     @Column(nullable = false)
     private String orgaoEmissor;
 
-    @OneToMany(mappedBy = "condutor", cascade = CascadeType.ALL)
-    private List<Veiculo> veiculo;
+    @OneToOne(mappedBy = "condutor", cascade = CascadeType.ALL)
+    private Veiculo veiculo;
 
     @OneToMany(mappedBy = "codMulta", cascade = CascadeType.ALL)
     private List<Multa> multas;
@@ -51,12 +51,11 @@ public class Condutor{
         this.orgaoEmissor = orgaoEmissor;
     }
 
-
-    public List<Veiculo> getVeiculo() {
+    public Veiculo getVeiculo() {
         return veiculo;
     }
 
-    public void setVeiculo(List<Veiculo> veiculo) {
+    public void setVeiculo(Veiculo veiculo) {
         this.veiculo = veiculo;
     }
 

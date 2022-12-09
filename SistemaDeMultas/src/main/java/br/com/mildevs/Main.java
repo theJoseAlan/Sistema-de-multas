@@ -4,7 +4,6 @@ import br.com.mildevs.dao.CondutorDao;
 import br.com.mildevs.dao.MultaDao;
 import br.com.mildevs.dao.VeiculoDao;
 import br.com.mildevs.entity.Condutor;
-import br.com.mildevs.entity.Multa;
 import br.com.mildevs.entity.Veiculo;
 
 import java.util.Scanner;
@@ -17,22 +16,23 @@ public class Main {
         VeiculoDao veiculoDao = new VeiculoDao();
         MultaDao multaDao = new MultaDao();
 
-
         Condutor condutor = new Condutor();
         condutor.setNumCnh(12345);
-        condutor.setDataEmissao("04/12/09");
-        condutor.setOrgaoEmissor("SSPX");
-        //condutor.setPontuacao(4);
+        condutor.setDataEmissao("12/12/12");
+        condutor.setOrgaoEmissor("CCXP");
         condutorDao.criaCondutor(condutor);
 
-
         Veiculo veiculo = new Veiculo();
-        veiculo.setMarca("BMW");
-        veiculo.setModelo("Bem grande");
-        veiculo.setPlaca("OCK6635");
-        veiculo.setCondutor(condutor);
-        veiculoDao.criaVeiculo(veiculo);
+        veiculo.setMarca("BMX");
+        veiculo.setModelo("Bike Discorvernant");
+        veiculo.setPlaca("TEC3212");
+        //veiculo.setCondutor(condutor);
 
+        veiculoDao.criaVeiculo(veiculo);
+        veiculoDao.insereCondutor(condutor, veiculo.getPlaca());
+
+
+        /*
         Multa multa = new Multa();
         multa.setCodMulta(12);
         multa.setPontuacao(3);
@@ -40,6 +40,7 @@ public class Main {
         multa.setVeiculo(veiculo);
         multa.setCondutor(condutor);
         multaDao.criaMulta(multa);
+
 
         condutorDao.adcionaPontos(condutor.getNumCnh(), multa.getPontuacao());
 
@@ -80,6 +81,20 @@ public class Main {
         }
         */
 
+    }
+
+
+    private static void exibeMenuPrincipal() {
+        System.out.println("=============== SISTEMA DE MULTAS ===============");
+        System.out.println("                     _______      \n" +
+                "                    //  ||\\ \\     \n" +
+                "              _____//___||_\\ \\___ \n" +
+                "              )  _          _    \\\n" +
+                "              |_/ \\________/ \\___|\n" +
+                "             ___\\_/________\\_/____");
+        System.out.println("================= SEJA BEM-VINDO =================");
+        System.out.println("\nEscolha uma das opções para manipulação: ");
+        System.out.println("[1] CONDUTOR | [2] VEICULO | [3] MULTA [4] SAIR\nR: ");
     }
 
     private static void exibeSubmenu() {

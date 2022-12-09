@@ -1,7 +1,7 @@
 package br.com.mildevs.dao;
 
 import br.com.mildevs.entity.Condutor;
-import br.com.mildevs.entity.Multa;
+import br.com.mildevs.entity.Veiculo;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
@@ -66,4 +66,7 @@ public class CondutorDao {
 
         return true;
     }
+
+
+
 }

@@ -33,22 +33,7 @@ public class MultaDao {
         return query.getResultList();
     }
 
-    //Adciona os pontos da multa no condutor
-    /*public boolean adcionaPontos(Condutor condutor, int pontos){
-        Multa multa = this.manager.find(Multa.class, pontos);
 
-        if(multa==null){
-            return false;
-        }
-        if(multa.getCondutor()!=null){
-            return false;
-        }
 
-        this.manager.getTransaction().begin();
-        this.manager.merge(multa);
-        this.manager.getTransaction().commit();
-
-        return true;
-    }*/
 
 }

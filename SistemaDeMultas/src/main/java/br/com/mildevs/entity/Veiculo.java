@@ -18,7 +18,7 @@ public class Veiculo {
     @Column(nullable = false)
     private String marca;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "cnh_fk", referencedColumnName = "num_cnh")
     private Condutor condutor;
 
@@ -57,6 +57,7 @@ public class Veiculo {
     public void setCondutor(Condutor condutor) {
         this.condutor = condutor;
     }
+
 
     public List<Multa> getMultas() {
         return multas;
