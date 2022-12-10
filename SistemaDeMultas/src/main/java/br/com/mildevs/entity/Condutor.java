@@ -74,4 +74,13 @@ public class Condutor{
     public void setPontuacao(int pontuacao) {
         this.pontuacao = pontuacao;
     }
+
+    @Override
+    public String toString() {
+        return  "CNH: " + numCnh +
+                " | Data de emissão: " + dataEmissao  +
+                " | Orgão Emissor: " + orgaoEmissor  +
+                " | Veiculo: " + veiculo +
+                " | Pontos: " + pontuacao;
+    }
 }

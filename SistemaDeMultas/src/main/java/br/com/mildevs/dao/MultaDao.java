@@ -28,12 +28,29 @@ public class MultaDao {
     }
 
     //Listagem
-    public List<Multa> listaMulta(){
+    public List<Multa> listaMultas(){
         Query query = manager.createQuery("Select m FROM Multa as m");
         return query.getResultList();
     }
 
+    //Consulta
+    public Multa consultaMulta(int codMulta){
+        return this.manager.find(Multa.class, codMulta);
+    }
 
+    //Remoção
+    public boolean removeMulta(int codMulta){
+        Multa multa = this.manager.find(Multa.class, codMulta);
+
+        if(multa==null){
+            return false;
+        }
+        this.manager.getTransaction().begin();
+        this.manager.remove(multa);
+        this.manager.getTransaction().commit();
+
+        return true;
+    }
 
 
 }

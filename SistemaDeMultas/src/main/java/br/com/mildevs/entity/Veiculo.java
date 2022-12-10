@@ -3,7 +3,6 @@ package br.com.mildevs.entity;
 import jakarta.persistence.*;
 
 import java.util.List;
-import java.util.PrimitiveIterator;
 
 @Entity
 public class Veiculo {
@@ -65,5 +64,12 @@ public class Veiculo {
 
     public void setMultas(List<Multa> multas) {
         this.multas = multas;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Placa: " + placa + " | Modelo: " + modelo + " | Marca: " + marca +
+                " | Condutor: " + condutor.getNumCnh() + " | Multas: " + multas;
     }
 }

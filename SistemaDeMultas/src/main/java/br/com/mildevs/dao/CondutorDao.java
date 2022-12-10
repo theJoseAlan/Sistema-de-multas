@@ -33,9 +33,9 @@ public class CondutorDao {
 
 
     //consulta
-
     public Condutor consultaCondutor(int cnh){
         return this.manager.find(Condutor.class, cnh);
+
     }
 
     //remoção
@@ -53,10 +53,8 @@ public class CondutorDao {
     }
 
     //Adciona pontos
-
     public boolean adcionaPontos(int cnh, int pontos){
         Condutor condutor = this.manager.find(Condutor.class, cnh);
-
 
         condutor.setPontuacao(condutor.getPontuacao()+pontos);
 
@@ -66,7 +64,6 @@ public class CondutorDao {
 
         return true;
     }
-
 
 
 }

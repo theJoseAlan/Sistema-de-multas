@@ -62,4 +62,10 @@ public class Multa {
     public void setCondutor(Condutor condutor) {
         this.condutor = condutor;
     }
+
+    @Override
+    public String toString() {
+        return "Código: " + codMulta +" | Valor: " + valor + " | Pontos: " + pontuacao +
+                " | Veiculo: " + veiculo.getPlaca();
+    }
 }

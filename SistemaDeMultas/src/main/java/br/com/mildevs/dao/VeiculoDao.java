@@ -32,39 +32,40 @@ public class VeiculoDao {
         return query.getResultList();
     }
 
-    /*
-    public boolean adcionaPontos(int cnh, int pontos){
+    //consulta
+    public Veiculo consultaVeiculo(String placa){
+        return this.manager.find(Veiculo.class, placa);
+    }
+    
+    public boolean adcionaCondutor(Veiculo veiculo, int cnh) {
+
         Condutor condutor = this.manager.find(Condutor.class, cnh);
 
-
-        condutor.setPontuacao(condutor.getPontuacao()+pontos);
+       veiculo.setCondutor(condutor);
 
         this.manager.getTransaction().begin();
-        this.manager.persist(condutor);
+        this.manager.persist(veiculo);
         this.manager.getTransaction().commit();
 
         return true;
-    }
-     */
 
-    public boolean insereCondutor(Condutor condutor, String placa){
+    }
+
+    //Remoção
+    public boolean removeVeiculo(String placa){
         Veiculo veiculo = this.manager.find(Veiculo.class, placa);
 
-        if (veiculo==null){
+        if(veiculo==null){
             return false;
         }
-
-        if (veiculo.getCondutor()!=null){
-            return false;
-        }
-
-        veiculo.setCondutor(condutor);
         this.manager.getTransaction().begin();
-        this.manager.merge(veiculo);
+        this.manager.remove(veiculo);
         this.manager.getTransaction().commit();
 
         return true;
     }
+
+
 
     /*Venda Veiculo
     public boolean vendaVeiculo(){
