@@ -36,7 +36,7 @@ public class VeiculoDao {
     public Veiculo consultaVeiculo(String placa){
         return this.manager.find(Veiculo.class, placa);
     }
-    
+
     public boolean adcionaCondutor(Veiculo veiculo, int cnh) {
 
         Condutor condutor = this.manager.find(Condutor.class, cnh);
