@@ -58,7 +58,6 @@ public class Main {
                             break;
 
                         default:
-                            System.out.println("Opção inválida!");
                             break;
                     }
                     if (sop==5){
@@ -91,7 +90,6 @@ public class Main {
                             break;
 
                         default:
-                            System.out.println("Opção inválida!");
                             break;
                     }
                     if (sop==5){
@@ -125,7 +123,6 @@ public class Main {
                             break;
 
                         default:
-                            System.out.println("Opção inválida!");
                             break;
                     }
 
@@ -302,7 +299,7 @@ public class Main {
     }
 
     private static void exibeFim() {
-        System.out.println("\nObrigado por utilizar nossos serviços! :-)");
+        System.out.println("\nAté mais! :-)");
         System.out.println("        .              _._\\\")\n" +
                 "        I\\___        ,;)))}^\\\n" +
                 "        I `%%^\\%%%%.::q::    `\\.\n" +
