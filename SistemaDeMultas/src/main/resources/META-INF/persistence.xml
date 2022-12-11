@@ -11,8 +11,6 @@
         <class>br.com.mildevs.entity.Multa</class>
         <class>br.com.mildevs.entity.Veiculo</class>
 
-        <!--FAZER ALTERAÇÕES DE CONEXÃO E INSERIR O ESQUEMA -MULTAS- NO BD-->
-
         <properties>
             <property name="jakarta.persistence.jdbc.driver"
                       value="org.postgresql.Driver" />

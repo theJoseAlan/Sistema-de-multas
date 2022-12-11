@@ -78,9 +78,7 @@ public class Condutor{
     @Override
     public String toString() {
         return  "CNH: " + numCnh +
-                " | Data de emissão: " + dataEmissao  +
-                " | Orgão Emissor: " + orgaoEmissor  +
-                " | Veiculo: " + veiculo +
+                " | Data de emissão: " + dataEmissao  + " | Orgão Emissor: " + orgaoEmissor  +
                 " | Pontos: " + pontuacao;
     }
 }

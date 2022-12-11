@@ -70,27 +70,23 @@ public class Main {
 
                 switch (sop){
                     case 1:
-                        System.out.print("Placa: ");
-                        String placa = input.nextLine();
-                        System.out.print("Marca: ");
-                        String marca = input.nextLine();
-                        System.out.print("Modelo: ");
-                        String modelo = input.nextLine();
-                        System.out.print("Digite a CNH do condutor deste veículo: ");
-                        int cnhCondutor = input.nextInt();
+                        insereVeiculo(input, veiculoDao);
+                        break;
 
-                        Veiculo veiculo = new Veiculo();
-                        veiculo.setPlaca(placa);
-                        veiculo.setMarca(marca);
-                        veiculo.setModelo(modelo);
-                        veiculoDao.criaVeiculo(veiculo);
+                    case 2:
+                        listaVeiculos(veiculoDao);
+                        break;
 
-                        veiculoDao.adcionaCondutor(veiculo, cnhCondutor);
+                    case 3:
+                        consultaVeiculo(input, veiculoDao);
+                        break;
 
+                    case 4:
+                        removeVeiculo(input, veiculoDao);
+                        break;
 
-
-
-
+                    default:
+                        System.out.println("Retornando ao menu principal");
                         break;
                 }
 
@@ -125,6 +121,56 @@ public class Main {
 
     }
 
+    private static void removeVeiculo(Scanner input, VeiculoDao veiculoDao) {
+        System.out.print("Digite a placa do veículo que deseja remover: ");
+        String placaARemover = input.nextLine();
+
+        System.out.print("Tem certeza que deseja remover o veiculo" +
+                " com PLACA = "+placaARemover+" ? [S] SIM [N] NÂO\nR: ");
+        String  certeza = input.nextLine();
+
+        if(certeza.equals("S") || certeza.equals("s")){
+            veiculoDao.removeVeiculo(placaARemover);
+            System.out.println("VEICULO REMOVIDO");
+        } else {
+            System.out.println("VEICULO MANTIDO");
+        }
+    }
+
+    private static void consultaVeiculo(Scanner input, VeiculoDao veiculoDao) {
+        System.out.print("Digite a placa do veículo que deseja consultar: ");
+        String placaAConsultar = input.nextLine();
+        Veiculo veiculoBd = veiculoDao.consultaVeiculo(placaAConsultar);
+        System.out.println("Veiculo encontrado = > "+veiculoBd);
+    }
+
+    private static void listaVeiculos(VeiculoDao veiculoDao) {
+        List<Veiculo> veiculosnoBd = veiculoDao.listaVeiculo();
+        System.out.println("========= LISTA DE VEICULOS ===========");
+        for(Veiculo veiculosEncontrados : veiculosnoBd){
+        System.out.println(veiculosEncontrados);
+        }
+    }
+
+    private static void insereVeiculo(Scanner input, VeiculoDao veiculoDao) {
+        System.out.print("Placa: ");
+        String placa = input.nextLine();
+        System.out.print("Marca: ");
+        String marca = input.nextLine();
+        System.out.print("Modelo: ");
+        String modelo = input.nextLine();
+        System.out.print("Digite a CNH do condutor deste veículo: ");
+        int cnhCondutor = input.nextInt();
+        input.nextLine();
+
+        Veiculo veiculo = new Veiculo();
+        veiculo.setPlaca(placa);
+        veiculo.setMarca(marca);
+        veiculo.setModelo(modelo);
+        veiculoDao.criaVeiculo(veiculo);
+        veiculoDao.adcionaCondutor(veiculo, cnhCondutor);
+    }
+
     private static void removeCondutor(Scanner input, CondutorDao condutorDao) {
         System.out.print("Digite a CNH do condutor que deseja remover: ");
         int cnhARemover = input.nextInt();
@@ -151,7 +197,7 @@ public class Main {
 
     private static void ListaCondutores(CondutorDao condutorDao) {
         List<Condutor> condutoresnoBd = condutorDao.listaCondutores();
-        System.out.println("\n========= LISTA CONDUTORES ===========");
+        System.out.println("\n========= LISTA DE CONDUTORES ===========");
         for(Condutor condutoresencontrados : condutoresnoBd){
             System.out.println(condutoresencontrados);
         }
