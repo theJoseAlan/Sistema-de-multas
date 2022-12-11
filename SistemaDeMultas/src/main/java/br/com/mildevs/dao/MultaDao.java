@@ -38,6 +38,13 @@ public class MultaDao {
         return this.manager.find(Multa.class, codMulta);
     }
 
+    //Listagem por veiculo
+    /*public List<Multa> listaMultasPorVeiculo(String placa){
+        Query query = manager.createQuery("Select * FROM Multa WHERE placa_fk = ?"+placa);
+        return query.getResultList();
+    }*/
+
+
     //Remoção
     public boolean removeMulta(int codMulta){
         Multa multa = this.manager.find(Multa.class, codMulta);

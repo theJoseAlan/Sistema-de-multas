@@ -122,6 +122,14 @@ public class Main {
                             removeMulta(input, multaDao);
                             break;
 
+                        /*case 5:
+                            System.out.print("Placa do veiculo: ");
+                            String placa = input.nextLine();
+
+                            multaDao.listaMultasPorVeiculo(placa);
+
+                            break;*/
+
                         default:
                             break;
                     }
@@ -138,7 +146,6 @@ public class Main {
             }
 
         }while (true);
-
     }
 
     private static void removeMulta(Scanner input, MultaDao multaDao) {
@@ -190,8 +197,8 @@ public class Main {
 
         Multa multa = new Multa();
         multa.setCodMulta(codMulta);
-        multa.setPontuacao(3);
-        multa.setValor(300.45);
+        multa.setPontuacao(pontos);
+        multa.setValor(valor);
         multaDao.criaMulta(multa);
         multaDao.adcionaVeiculo(multa, placa);
         condutorDao.adcionaPontos(cnh, multa.getPontuacao());
