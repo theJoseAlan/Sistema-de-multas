@@ -22,6 +22,7 @@ public class Veiculo {
     private Condutor condutor;
 
     @OneToMany(mappedBy = "codMulta", cascade = CascadeType.ALL)
+    //@JoinColumn(name = "multas", referencedColumnName = "cod_Multa")
     private List<Multa> multas;
 
 

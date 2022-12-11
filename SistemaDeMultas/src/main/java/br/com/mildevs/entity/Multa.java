@@ -65,7 +65,7 @@ public class Multa {
 
     @Override
     public String toString() {
-        return "Código: " + codMulta +" | Valor: " + valor + " | Pontos: " + pontuacao +
-                " | Veiculo: " + veiculo.getPlaca();
+        return "Código: " + codMulta +" | Valor: " + valor +
+                " | Pontos: " + pontuacao +" | Veiculo: "+veiculo.getPlaca();
     }
 }

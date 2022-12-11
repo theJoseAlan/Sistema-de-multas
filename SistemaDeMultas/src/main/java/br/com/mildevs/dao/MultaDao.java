@@ -52,5 +52,36 @@ public class MultaDao {
         return true;
     }
 
+    //Adciona Veiculo
+    public boolean adcionaVeiculo(Multa multa, String placa) {
+
+        Veiculo veiculo = this.manager.find(Veiculo.class, placa);
+
+        multa.setVeiculo(veiculo);
+
+        this.manager.getTransaction().begin();
+        this.manager.persist(multa);
+        this.manager.getTransaction().commit();
+
+        return true;
+
+    }
+
+    //Adciona Veiculo
+    public boolean adcionaCondutor(Multa multa, int cnh) {
+
+        Condutor condutor = this.manager.find(Condutor.class, cnh);
+
+        multa.setCondutor(condutor);
+
+        this.manager.getTransaction().begin();
+        this.manager.persist(multa);
+        this.manager.getTransaction().commit();
+
+        return true;
+
+    }
+
+
 
 }

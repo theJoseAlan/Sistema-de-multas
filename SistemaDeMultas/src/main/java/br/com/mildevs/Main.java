@@ -8,8 +8,8 @@ import br.com.mildevs.entity.Multa;
 import br.com.mildevs.entity.Veiculo;
 import com.sun.source.tree.SwitchTree;
 import jakarta.persistence.EntityManager;
-
 import javax.swing.text.html.parser.Entity;
+import java.io.IOException;
 import java.lang.invoke.StringConcatFactory;
 import java.util.List;
 import java.util.Scanner;
@@ -26,99 +26,179 @@ public class Main {
         VeiculoDao veiculoDao = new VeiculoDao();
         MultaDao multaDao = new MultaDao();
 
-
-
         int sop;
 
         do {
+
             exibeMenuPrincipal();
             int op = input.nextInt();
 
             if(op==1){
-                System.out.println("=-=-=- CONDUTOR -=-=-=");
-                exibeSubmenu();
-                sop = input.nextInt();
+                do {
 
-                switch (sop){
-                    case 1:
-                        insereCondutor(input, condutorDao);
+                    System.out.println("=-=-=- CONDUTOR -=-=-=");
+                    exibeSubmenu();
+                    sop = input.nextInt();
+
+                    switch (sop){
+                        case 1:
+                            insereCondutor(input, condutorDao);
+                            break;
+
+                        case 2:
+                            ListaCondutores(condutorDao);
+                            break;
+
+                        case 3:
+                            ConsultaCondutor(input, condutorDao);
+                            break;
+
+                        case 4:
+                            removeCondutor(input, condutorDao);
+                            break;
+
+                        default:
+                            System.out.println("Opção inválida!");
+                            break;
+                    }
+                    if (sop==5){
                         break;
-
-                    case 2:
-                        ListaCondutores(condutorDao);
-                        break;
-
-                    case 3:
-                        ConsultaCondutor(input, condutorDao);
-                        break;
-
-                    case 4:
-                        removeCondutor(input, condutorDao);
-                        break;
-
-                    default:
-                        System.out.println("Retornando ao menu principal");
-                        break;
-                }
-
+                    }
+                }while (true);
 
             } else if (op==2) {
-                System.out.println("=-=-=- VEICULO -=-=-=");
-                exibeSubmenu();
-                sop = input.nextInt();
-                input.nextLine();
+                do {
+                    System.out.println("=-=-=- VEICULO -=-=-=");
+                    exibeSubmenu();
+                    sop = input.nextInt();
+                    input.nextLine();
 
-                switch (sop){
-                    case 1:
-                        insereVeiculo(input, veiculoDao);
-                        break;
+                    switch (sop){
+                        case 1:
+                            insereVeiculo(input, veiculoDao);
+                            break;
 
-                    case 2:
-                        listaVeiculos(veiculoDao);
-                        break;
+                        case 2:
+                            listaVeiculos(veiculoDao);
+                            break;
 
-                    case 3:
-                        consultaVeiculo(input, veiculoDao);
-                        break;
+                        case 3:
+                            consultaVeiculo(input, veiculoDao);
+                            break;
 
-                    case 4:
-                        removeVeiculo(input, veiculoDao);
-                        break;
+                        case 4:
+                            removeVeiculo(input, veiculoDao);
+                            break;
 
-                    default:
-                        System.out.println("Retornando ao menu principal");
+                        default:
+                            System.out.println("Opção inválida!");
+                            break;
+                    }
+                    if (sop==5){
                         break;
-                }
+                    }
+
+                }while (true);
 
             } else if (op==3) {
-                exibeSubmenu();
+                do {
+                    System.out.println("=-=-=- MULTA -=-=-=");
+                    exibeSubmenu();
+                    sop = input.nextInt();
+                    input.nextLine();
+
+                    switch (sop) {
+                        case 1:
+                            insereMulta(input, condutorDao, multaDao);
+                            break;
+
+                        case 2:
+                            listaMultas(multaDao);
+                            break;
+
+                        case 3:
+                            consultaMultas(input, multaDao);
+                            break;
+
+                        case 4:
+                            removeMulta(input, multaDao);
+                            break;
+
+                        default:
+                            System.out.println("Opção inválida!");
+                            break;
+                    }
+
+                    if (sop==5){
+                        break;
+                    }
+
+                }while (true);
 
             } else if (op==4) {
                 exibeFim();
                 break;
             }
 
-
         }while (true);
 
-/*
+    }
 
+    private static void removeMulta(Scanner input, MultaDao multaDao) {
+        System.out.print("Digite o código da multa que deseja remover: ");
+        int multaARemover = input.nextInt();
+        input.nextLine();
 
+        System.out.print("Tem certeza que deseja remover a multa" +
+                " com CÓDIGO = "+multaARemover+" ? [S] SIM [N] NÂO\nR: ");
+        String  certeza = input.nextLine();
 
+        if(certeza.equals("S") || certeza.equals("s")){
+            multaDao.removeMulta(multaARemover);
+            System.out.println("MULTA REMOVIDA");
+        } else {
+            System.out.println("MULTA MANTIDA");
+        }
+    }
 
+    private static void consultaMultas(Scanner input, MultaDao multaDao) {
+        System.out.println("========= CONSULTA ===========");
+        System.out.print("Digite o código da multa que deseja consultar: ");
+        int multaAConsultar = input.nextInt();
+
+        Multa multaBd = multaDao.consultaMulta(multaAConsultar);
+        System.out.println("Multa encontrada = > "+multaBd);
+    }
+
+    private static void listaMultas(MultaDao multaDao) {
+        List<Multa> multasnoBd = multaDao.listaMultas();
+        System.out.println("========= LISTA MULTAS ===========");
+        for(Multa multasEncontradas : multasnoBd) {
+            System.out.println(multasEncontradas);
+        }
+    }
+
+    private static void insereMulta(Scanner input, CondutorDao condutorDao, MultaDao multaDao) {
+        System.out.print("Código da multa: ");
+        int codMulta = input.nextInt();
+        System.out.print("Pontos: ");
+        int pontos = input.nextInt();
+        System.out.print("Valor: ");
+        double valor =  input.nextDouble();
+        input.nextLine();
+        System.out.print("Placa do veiculo: ");
+        String placa = input.nextLine();
+        System.out.print("CNH do condutor: ");
+        int cnh = input.nextInt();
 
         Multa multa = new Multa();
-        multa.setCodMulta(12);
+        multa.setCodMulta(codMulta);
         multa.setPontuacao(3);
         multa.setValor(300.45);
-        multa.setVeiculo(veiculo);
-        multa.setCondutor(condutor);
         multaDao.criaMulta(multa);
-        condutorDao.adcionaPontos(condutor.getNumCnh(), multa.getPontuacao());
-
-
-*/
-
+        multaDao.adcionaVeiculo(multa, placa);
+        condutorDao.adcionaPontos(cnh, multa.getPontuacao());
+        multaDao.adcionaCondutor(multa, cnh);
     }
 
     private static void removeVeiculo(Scanner input, VeiculoDao veiculoDao) {
@@ -231,7 +311,6 @@ public class Main {
                 "      \"*oo*\"                   \"*ooo*\"");
     }
 
-
     private static void exibeMenuPrincipal() {
         System.out.println("\n\n");
         System.out.println("=============== SISTEMA DE MULTAS ===============");
@@ -249,9 +328,7 @@ public class Main {
     private static void exibeSubmenu() {
         System.out.println("O que deseja fazer?");
         System.out.print("[1] Inserir\n[2] Listar todos os cadastros\n" +
-                        "[3] Consultar um cadastro\n[4] Remover um cadastro\n" +
-                "OBS.: Digite qualquer outro numero para retornar ao menu principal\nR: ");
-
+                        "[3] Consultar um cadastro\n[4] Remover um cadastro\n[5] Menu Principal\nR: ");
     }
 
 }
