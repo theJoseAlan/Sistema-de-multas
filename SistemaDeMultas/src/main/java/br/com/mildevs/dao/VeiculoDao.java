@@ -66,21 +66,22 @@ public class VeiculoDao {
     }
 
 
+/*
+    //Venda Veiculo
+    public boolean vendaVeiculo(Veiculo veiculo, int cnh) {
 
-    /*Venda Veiculo
-    public boolean vendaVeiculo(){
+        Condutor condutor = this.manager.find(Condutor.class, cnh);
+
+        veiculo.setCondutor(condutor);
+
+        this.manager.getTransaction().begin();
+        this.manager.persist(veiculo);
+        this.manager.getTransaction().commit();
+
         return true;
-    }
-
-   public int retornaCnh(Veiculo veiculo){
-
-        Condutor condutor;
-
-        condutor = manager.find(Condutor.class, veiculo.getCondutor());
-
-        return condutor.getNumCnh();
 
     }*/
+
 
 
 }

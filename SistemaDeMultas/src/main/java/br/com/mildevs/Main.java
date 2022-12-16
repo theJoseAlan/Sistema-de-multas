@@ -1,6 +1,7 @@
 package br.com.mildevs;
 
 import br.com.mildevs.dao.CondutorDao;
+
 import br.com.mildevs.dao.MultaDao;
 import br.com.mildevs.dao.VeiculoDao;
 import br.com.mildevs.entity.Condutor;
@@ -19,7 +20,7 @@ import java.util.logging.Logger;
 public class Main {
     public static void main(String[] args) {
 
-        Logger.getLogger("org.hibernate").setLevel(Level.OFF);
+        Logger.getLogger("org.hibernate").setLevel(Level.OFF); //Limpa os codigos warnings no hibernate
 
         Scanner input = new Scanner(System.in);
         CondutorDao condutorDao = new CondutorDao();
