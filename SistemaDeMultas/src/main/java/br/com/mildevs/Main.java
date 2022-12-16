@@ -68,7 +68,7 @@ public class Main {
             } else if (op==2) {
                 do {
                     System.out.println("=-=-=- VEICULO -=-=-=");
-                    exibeSubmenu();
+                    exibeSubmenuVeiculo();
                     sop = input.nextInt();
                     input.nextLine();
 
@@ -89,10 +89,21 @@ public class Main {
                             removeVeiculo(input, veiculoDao);
                             break;
 
+                        case 5:
+                            System.out.print("Placa do veiculo: ");
+                            String placa = input.nextLine();
+                            System.out.print("CNH do comprador: ");
+                            int cnh = input.nextInt();
+                            input.nextLine();
+
+                            veiculoDao.vendaVeiculo(placa, cnh);
+
+                            System.out.println("Veiculo com placa "+placa+" vendido para comprador com cnh "+cnh);
+
                         default:
                             break;
                     }
-                    if (sop==5){
+                    if (sop==6){
                         break;
                     }
 
@@ -125,7 +136,6 @@ public class Main {
                         /*case 5:
                             System.out.print("Placa do veiculo: ");
                             String placa = input.nextLine();
-
                             multaDao.listaMultasPorVeiculo(placa);
 
                             break;*/
@@ -333,6 +343,12 @@ public class Main {
         System.out.println("O que deseja fazer?");
         System.out.print("[1] Inserir\n[2] Listar todos os cadastros\n" +
                         "[3] Consultar um cadastro\n[4] Remover um cadastro\n[5] Menu Principal\nR: ");
+    }
+
+    private static void exibeSubmenuVeiculo() {
+        System.out.println("O que deseja fazer?");
+        System.out.print("[1] Inserir\n[2] Listar todos os cadastros\n" +
+                "[3] Consultar um cadastro\n[4] Remover um cadastro\n[5] Vender veiculo\n[6] Menu Principal\nR: ");
     }
 
 }
