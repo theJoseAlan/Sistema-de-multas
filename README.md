@@ -25,7 +25,7 @@
 
 ## ⚙️ Operações
 ### 🔩 Para cada entidade é possível:
-* Criar, Listar todos os cadastros, Colsultar a partir do Id (cnh. placa, codigo (da multa)), remover
+* Criar, Listar todos os cadastros, Colsultar a partir do Id (cnh, placa, codigo (da multa)), remover
 * Operações adcionais: Venda de veículo (recebe a placa do veículo e a cnh do comprador)
 
 * Observações: 
