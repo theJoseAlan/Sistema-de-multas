@@ -31,7 +31,8 @@
 * Observações: 
 1. É possível criar um condutor sem um veiculo ou multa associados a ele
 2. Não é possível prosseguir com a inserção de um veículo sem um condutor associado
-3. Pesquisar multas por veículo (função não implementada 😥)
-4. O passo a passo de inserção de valores deve ser seguido a risca, não há tratamento de exessões :-(
+3. É possível vender um veículo inserindo a cnh do comprador (previamente cadastrado) 
+4. Pesquisar multas por veículo (função não implementada 😥)
+5. passo a passo de inserção de valores deve ser seguido a risca, não há tratamento de exessões (ainda)
 
 obs: O que ficou a desejar será implementado posteriormente (está assim devido ao limite de tempo da entrega)
