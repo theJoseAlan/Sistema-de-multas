@@ -1,6 +1,7 @@
 package br.com.mildevs.dao;
 
 import br.com.mildevs.entity.Condutor;
+import br.com.mildevs.entity.Multa;
 import br.com.mildevs.entity.Veiculo;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
@@ -66,6 +67,7 @@ public class VeiculoDao {
     }
 
 
+<<<<<<< HEAD
 /*
     //Venda Veiculo
     public boolean vendaVeiculo(Veiculo veiculo, int cnh) {
@@ -79,9 +81,45 @@ public class VeiculoDao {
         this.manager.getTransaction().commit();
 
         return true;
+=======
+    //Venda de veiculo
+    public boolean vendaVeiculo(String placa, int cnh){
+        Condutor condutor = this.manager.find(Condutor.class, cnh);
 
+        Veiculo veiculo = this.manager.find(Veiculo.class, placa);
+
+        veiculo.setCondutor(condutor);
+
+        manager.getTransaction().begin();
+        manager.merge(veiculo);
+        manager.getTransaction().commit();
+
+        return true;
+    }
+
+    //Listagem de multa por veiculo
+    /*public boolean listaMultasPorVeiculo(String placa){
+        Query query = manager.createQuery("SELECT m FROM multa as m WHERE m.veiculo = :placa");
+
+        Veiculo veiculo = this.manager.find(Veiculo.class, placa);
+
+        Multa multa = this.manager.find(Multa.class, codMulta);
+
+        query.setParameter(multa.getCodMulta(), placa);
+>>>>>>> b8f76f213b0a8423ff6ab25d600a8ff88b9e513a
+
+        List<Multa> multas = query.getResultList();
+
+        for(Multa multa1 : multas){
+            System.out.println(multa1);
+        }
+
+        return true;
     }*/
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> b8f76f213b0a8423ff6ab25d600a8ff88b9e513a
 }

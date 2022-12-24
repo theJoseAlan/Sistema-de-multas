@@ -1,0 +1,20 @@
+1. FETCH
+    Usado em mapeamento de relações (especificamente em buscas), o fetch
+    é uma possibilidade de melhorar a performance de um sistema. Dentro
+    dele, há dois "modos" de usá-lo. Tratam-se do Eager e do Lazy.
+    Usando Lazy, os objetos necessários só serão "chamados" quando houver
+    necessidade de obtê-los. Já o Eager, pode "chamar" os obejtos mesmo
+    que não haja um objetivo direto no seu uso, ou seja, eles serão sempre
+    "carregados".
+
+2. OPTIONAL
+    Essa anotação permite definir se a inserção de um dado em uma coluna é obrigatória ou não.
+    Assim que chamada, ela é true por padrão, ou seja, a inserção de uma informação é opcional.
+    Caso contrário, pode ser alterada para false, tornando a inserção obrigatória
+
+3. Cascade
+    O cascade é utilizado quando existe relacionamento entre classes (ou entidades). Assim, três
+    tipos de cascade são fundamentais para um sistema: All, Persist e Update. O tipo 'All'  replica
+    operações, o 'Persist' replica alterações quando há necessidade (uma "chamada"), o 'remove'
+    exclui as alterações das subclasses quando há um 'delete' em classes superiores, sendo
+    essas relacionadas entre si.

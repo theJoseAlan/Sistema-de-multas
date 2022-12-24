@@ -7,6 +7,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MultaDao {
@@ -38,6 +39,9 @@ public class MultaDao {
         return this.manager.find(Multa.class, codMulta);
     }
 
+
+
+
     //Remoção
     public boolean removeMulta(int codMulta){
         Multa multa = this.manager.find(Multa.class, codMulta);
@@ -67,12 +71,13 @@ public class MultaDao {
 
     }
 
-    //Adciona Veiculo
+    //Adciona veiculo
     public boolean adcionaCondutor(Multa multa, int cnh) {
 
         Condutor condutor = this.manager.find(Condutor.class, cnh);
 
         multa.setCondutor(condutor);
+
 
         this.manager.getTransaction().begin();
         this.manager.persist(multa);
