@@ -14,7 +14,8 @@ public class VeiculoDao {
     private EntityManager manager;
 
     public VeiculoDao() {
-        this.manager = Persistence.createEntityManagerFactory("multas").createEntityManager();
+        this.manager = Persistence.createEntityManagerFactory("multas")
+                .createEntityManager();
     }
 
     //Criação
@@ -67,7 +68,7 @@ public class VeiculoDao {
     }
 
 
-<<<<<<< HEAD
+
 /*
     //Venda Veiculo
     public boolean vendaVeiculo(Veiculo veiculo, int cnh) {
@@ -82,6 +83,8 @@ public class VeiculoDao {
 
         return true;
 =======
+
+ */
     //Venda de veiculo
     public boolean vendaVeiculo(String placa, int cnh){
         Condutor condutor = this.manager.find(Condutor.class, cnh);
@@ -106,7 +109,7 @@ public class VeiculoDao {
         Multa multa = this.manager.find(Multa.class, codMulta);
 
         query.setParameter(multa.getCodMulta(), placa);
->>>>>>> b8f76f213b0a8423ff6ab25d600a8ff88b9e513a
+
 
         List<Multa> multas = query.getResultList();
 
@@ -117,9 +120,5 @@ public class VeiculoDao {
         return true;
     }*/
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> b8f76f213b0a8423ff6ab25d600a8ff88b9e513a
 }
