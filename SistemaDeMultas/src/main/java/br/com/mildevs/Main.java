@@ -287,7 +287,11 @@ public class Main {
         System.out.print("Digite a CNH do condutor que procura: ");
         int cnhConsulta = input.nextInt();
         Condutor condutorBd = condutorDao.consultaCondutor(cnhConsulta);
-        System.out.println("Condutor encontrado = > "+condutorBd);
+        if(condutorBd==null){
+            System.out.println("Não foi encontrado nenhum condutor para a CNH: "+cnhConsulta);
+        }else{
+            System.out.println("Condutor encontrado = > "+condutorBd);
+        }
     }
 
     private static void ListaCondutores(CondutorDao condutorDao) {
